@@ -1,0 +1,22 @@
+﻿<h3>Survey Prompt</h3>
+<title></title>
+<p>This component demonstrates showing first components of @customer?.CustomerName about @Subject</p>
+
+@code {
+    [Parameter]
+    public string? Subject { get; set; } = "Blazor";
+
+    private SurveyModel customer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+        customer = new SurveyModel() { CustomerName = "Ecco" };
+    }
+
+    private class SurveyModel
+    {
+        public string CustomerName { get; set; } = "Some one";
+
+    }
+}
