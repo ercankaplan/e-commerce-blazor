@@ -1,6 +1,8 @@
 global using EcommerceBlazorShared;
 using EcommerceBlazorWebApp.Client.Pages;
 using EcommerceBlazorWebApp.Components;
+using EcommerceBlazorWebApp.Services.ProductService;
+using EcommerceBlazorWebApp.Services.RequestProvider;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -9,7 +11,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddScoped<HttpClient>();
-
+builder.Services.AddScoped<IHttpRequestProvider, HttpRequestProvider>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
