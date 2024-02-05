@@ -1,6 +1,7 @@
 global using Microsoft.EntityFrameworkCore;
 global using EcommerceBlazorAPI.Model;
 using EcommerceBlazorAPI.Infrastructure;
+using EcommerceBlazorAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddDbContext<ECommerceDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<IProductsService, ProductsService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

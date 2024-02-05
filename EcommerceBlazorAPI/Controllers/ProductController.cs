@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EcommerceBlazorAPI.Model;
+using EcommerceBlazorAPI.Services;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace EcommerceBlazorAPI.Controllers
@@ -9,10 +11,12 @@ namespace EcommerceBlazorAPI.Controllers
     {
 
         private readonly ILogger<ProductController> _logger;
+        private readonly IProductsService _productsService;
 
-        public ProductController(ILogger<ProductController> logger)
+        public ProductController(ILogger<ProductController> logger, IProductsService productsService)
         {
             _logger = logger;
+            _productsService = productsService;
         }
 
         //[HttpGet("ProductList")]
@@ -21,11 +25,11 @@ namespace EcommerceBlazorAPI.Controllers
         [SwaggerOperation(Summary = "ProductList", Description = "Gets ProductList", OperationId = "ProductList")]
         public async Task<IActionResult> GetProductList()
         {
-
-            if (!productList.Any())
+            var result = await _productsService.GetPrductList();
+            if (!result.Any())
                 NotFound();
 
-            return Ok(productList);
+            return Ok(result);
         }
 
         private List<Product> productList = new List<Product>
