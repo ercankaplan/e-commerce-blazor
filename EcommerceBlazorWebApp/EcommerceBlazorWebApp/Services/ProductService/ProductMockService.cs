@@ -4,7 +4,7 @@ namespace EcommerceBlazorWebApp.Services.ProductService
 {
     public class ProductMockService : IProductService
     {
-        public Task<List<Product>> GetProducts()
+        public Task<ServiceResponse<List<Product>>> GetProducts()
         {
             throw new NotImplementedException();
         }

@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceBlazorWebApp", "Ec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceBlazorWebApp.Client", "EcommerceBlazorWebApp\EcommerceBlazorWebApp.Client\EcommerceBlazorWebApp.Client.csproj", "{2AFEE349-4CF2-4F83-8D0F-F6A89358EC0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceBlazorShared", "EcommerceBlazorShared\EcommerceBlazorShared.csproj", "{05A308CE-E096-4AC7-9932-EDF36BEC6313}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceBlazorShared", "EcommerceBlazorShared\EcommerceBlazorShared.csproj", "{05A308CE-E096-4AC7-9932-EDF36BEC6313}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceBlazorAPI", "EcommerceBlazorAPI\EcommerceBlazorAPI.csproj", "{1E903930-2171-44A6-8DC9-0AA0D4107C13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceBlazorAPI", "EcommerceBlazorAPI\EcommerceBlazorAPI.csproj", "{1E903930-2171-44A6-8DC9-0AA0D4107C13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

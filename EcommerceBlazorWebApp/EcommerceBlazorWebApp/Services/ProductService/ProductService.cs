@@ -13,13 +13,13 @@ namespace EcommerceBlazorWebApp.Services.ProductService
             _httpRequestProvider = httpRequestProvider;
         }
 
-        public async Task<List<Product>> GetProducts()
+        public async Task<ServiceResponse<List<Product>>> GetProducts()
         {
             var uri = UriHelper.CombineUri(GlobalSetting.Instance.ProductsEndpoint);
+      
+            var response = await _httpRequestProvider.GetAsync<ServiceResponse<List<Product>>>(uri);
 
-            var list = await _httpRequestProvider.GetAsync<List<Product>>(uri);
-
-            return list;
+            return response;
         }
     }
 }
