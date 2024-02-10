@@ -22,4 +22,8 @@
     <Folder Include="Infrastructure\EntityConfigurations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EcommerceBlazorShared\EcommerceBlazorShared.csproj" />
+  </ItemGroup>
+
 </Project>

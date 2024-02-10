@@ -4,6 +4,6 @@ namespace EcommerceBlazorWebApp.Services.ProductService
 {
     public interface IProductService
     {
-        Task<List<Product>> GetProducts();
+        Task<ServiceResponse<List<Product>>> GetProducts();
     }
 }

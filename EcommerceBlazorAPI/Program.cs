@@ -1,7 +1,7 @@
 global using Microsoft.EntityFrameworkCore;
 global using EcommerceBlazorAPI.Model;
 using EcommerceBlazorAPI.Infrastructure;
-using EcommerceBlazorAPI.Services;
+using EcommerceBlazorAPI.Services.ProductsService;
 
 var builder = WebApplication.CreateBuilder(args);
 

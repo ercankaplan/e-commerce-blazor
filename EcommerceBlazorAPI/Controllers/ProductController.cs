@@ -1,5 +1,5 @@
 ﻿using EcommerceBlazorAPI.Model;
-using EcommerceBlazorAPI.Services;
+using EcommerceBlazorAPI.Services.ProductsService;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -21,13 +21,15 @@ namespace EcommerceBlazorAPI.Controllers
 
         //[HttpGet("ProductList")]
         [HttpGet]
-        [SwaggerResponse(200, Type = typeof(IEnumerable<Product>))]
+        [SwaggerResponse(200, Type = typeof(ApiResponse<IEnumerable<Product>>))]
         [SwaggerOperation(Summary = "ProductList", Description = "Gets ProductList", OperationId = "ProductList")]
         public async Task<IActionResult> GetProductList()
         {
-            var result = await _productsService.GetPrductList();
-            if (!result.Any())
+            var productList = await _productsService.GetPrductList();
+            if (!productList.Any())
                 NotFound();
+
+            var result = new ApiResponse<IEnumerable<Product>>() { Data = productList };
 
             return Ok(result);
         }
