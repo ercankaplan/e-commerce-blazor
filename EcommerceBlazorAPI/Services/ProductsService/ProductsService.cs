@@ -15,5 +15,9 @@ namespace EcommerceBlazorAPI.Services.ProductsService
         {
             return await _dbContext.Products.ToListAsync();
         }
+        public async Task<Product> GetProductById(int id)
+        {
+            return await _dbContext.Products.FindAsync(id);
+        }
     }
 }
