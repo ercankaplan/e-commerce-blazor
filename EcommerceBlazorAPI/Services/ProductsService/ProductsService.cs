@@ -17,7 +17,15 @@ namespace EcommerceBlazorAPI.Services.ProductsService
         }
         public async Task<Product> GetProductById(int id)
         {
-            return await _dbContext.Products.FindAsync(id);
+            return await _dbContext.Products.Include(i=> i.Category).FirstOrDefaultAsync(x=> x.Id == id);
+        }
+
+        public async Task<List<Product>> GetProductListByCategorySlug(string urlSlug)
+        {
+            var response =  await _dbContext.Products
+                .Where(x=> x.Category.Url.ToLower().Equals(urlSlug.ToLower())).ToListAsync();
+
+            return response;
         }
     }
 }

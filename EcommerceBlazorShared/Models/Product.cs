@@ -13,12 +13,14 @@ namespace EcommerceBlazorShared.Models
 
         public string Description { get; set; } = string.Empty;
 
-        public string Category { get; set; } = string.Empty;    
+        public int CategoryId { get; set; }    
 
         public decimal Price { get; set; }
 
         public string ImageUrl { get; set; } = string.Empty;
 
         public string Author { get; set; } = string.Empty;
+
+        public Category? Category { get; set; }
     }
 }

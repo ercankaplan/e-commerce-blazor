@@ -1,8 +1,9 @@
 ﻿@* @inject HttpClient _httpClient; *@
 @inject IProductService _productService;
+@implements IDisposable ; 
 @attribute [StreamRendering]
 
-@if (Products is null || !Products.Any())
+@if (_productService.Products is null || !_productService.Products.Any())
 {
 
     <span>loading...</span>
@@ -13,8 +14,9 @@ else
 
     <ul class="list-unstyled">
 
-        @foreach (var item in Products)
+        @foreach (var item in _productService.Products)
         {
+           
             <li class="media my-3">
 
                 <div class="image-img-wrapper ">
@@ -40,21 +42,29 @@ else
 
 @code {
 
-    private  List<Product>? Products ;
+    // private  List<Product>? Products ;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        await Task.Delay(500);
+        // await Task.Delay(500);
         // var result = await _httpClient.GetFromJsonAsync<List<Product>>("http://localhost:5063/api/Product");
 
-        var result = await _productService.GetProducts();
+        // var result = await _productService.GetProducts();
 
-        if (result.Success && result.Data is not null)
-            Products = result.Data;
+        _productService.ProductListChanged += StateHasChanged;
+
+        // if (result.Success && result.Data is not null)
+        //     Products = result.Data;
 
 
 
 
+    }
+
+    public void Dispose()
+    {
+        
+        _productService.ProductListChanged -= StateHasChanged;
     }
 
 

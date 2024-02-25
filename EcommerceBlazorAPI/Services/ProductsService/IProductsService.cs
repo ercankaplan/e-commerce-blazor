@@ -6,5 +6,6 @@ namespace EcommerceBlazorAPI.Services.ProductsService
     {
         Task<List<Product>> GetPrductList();
         Task<Product> GetProductById(int id);
+        Task<List<Product>> GetProductListByCategorySlug(string urlSlug);
     }
 }

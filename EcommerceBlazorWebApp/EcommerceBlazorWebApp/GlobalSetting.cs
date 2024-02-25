@@ -11,10 +11,17 @@
         public string AuthToken { get; set; } = string.Empty;
 
         public string ProductsEndpoint { get; set; } = string.Empty;
+        public string ProductsByCategoryEndpoint { get; set; } = string.Empty;
+        public string CategoriesEndpoint { get; set; } = string.Empty;
 
         public GlobalSetting()
         {
             ProductsEndpoint =  $"{DefaultEndpoint}/api/Product";
+            ProductsByCategoryEndpoint = $"{DefaultEndpoint}/api/Product/Category/";
+
+
+            CategoriesEndpoint = $"{DefaultEndpoint}/api/Category";
+           
         }
 
         public static GlobalSetting Instance { get; } = new GlobalSetting();
