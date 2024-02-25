@@ -50,6 +50,17 @@ namespace EcommerceBlazorAPI.Controllers
             return Ok(result);
         }
 
-   
+        [HttpGet("category/{urlslug}")]
+        [SwaggerResponse(200, Type = typeof(ApiResponse<List<Product>>))]
+        [SwaggerOperation(Summary = "Product List Of Category ", Description = "Gets Product List by category url", OperationId = "ProductListofCategory")]
+        public async Task<IActionResult> GetProductListByCategorySlug(string urlslug)
+        {
+            var product = await _productsService.GetProductListByCategorySlug(urlslug);
+
+            var result = new ApiResponse<List<Product>>() { Data = product, Success = (product is not null), Message = product is null ? "Product not found" : string.Empty };
+
+            return Ok(result);
+        }
+
     }
 }

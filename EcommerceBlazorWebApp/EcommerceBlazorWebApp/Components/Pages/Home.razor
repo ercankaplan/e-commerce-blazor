@@ -1,4 +1,7 @@
 ﻿@page "/"
+@page "/{urlSlug}"
+@inject IProductService _productService;
+
 @using EcommerceBlazorWebApp.Components.Pages.Products
 
 <PageTitle>Home</PageTitle>
@@ -11,3 +14,17 @@ Welcome to your new app.
 
 <SurveyPrompt Subject="DevBlozer" ></SurveyPrompt>
  *@
+
+@code{
+
+    [Parameter]
+    public string? urlSlug { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+
+        await _productService.GetProducts(urlSlug);
+
+    }
+
+ }

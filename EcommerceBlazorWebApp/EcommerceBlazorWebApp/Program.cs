@@ -1,8 +1,11 @@
-global using EcommerceBlazorShared;
-using EcommerceBlazorWebApp.Client.Pages;
+global using EcommerceBlazorShared.Models;
+global using EcommerceBlazorWebApp.Helpers;
+global using EcommerceBlazorWebApp.Services.RequestProvider;
+global using EcommerceBlazorWebApp.Services.CategoryService;
+global using EcommerceBlazorWebApp.Services.ProductService;
 using EcommerceBlazorWebApp.Components;
-using EcommerceBlazorWebApp.Services.ProductService;
-using EcommerceBlazorWebApp.Services.RequestProvider;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -13,9 +16,10 @@ builder.Services.AddRazorComponents()
 builder.Services.AddScoped<HttpClient>();
 builder.Services.AddScoped<IHttpRequestProvider, HttpRequestProvider>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
-
+//app.UseStatusCodePagesWithRedirects("/error/{0}");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -28,7 +32,7 @@ else
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();

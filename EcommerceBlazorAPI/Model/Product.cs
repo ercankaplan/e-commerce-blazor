@@ -9,7 +9,7 @@ namespace EcommerceBlazorAPI.Model
 
         public string Description { get; set; } = string.Empty;
 
-        public string Category { get; set; } = string.Empty;
+        public int CategoryId { get; set; }
 
 
         [Column(TypeName ="decimal(18,2)")]
@@ -18,5 +18,7 @@ namespace EcommerceBlazorAPI.Model
         public string ImageUrl { get; set; } = string.Empty;
 
         public string Author { get; set; } = string.Empty;
+
+        public Category Category { get; set; }
     }
 }
