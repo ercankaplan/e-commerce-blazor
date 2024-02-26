@@ -25,7 +25,12 @@ else
                 <h4 class="mb-0">@product.Title</h4>
          
             <p>@product.Description</p>
-            <h5 class="price">$@product.Price</h5>
+            @if (product.GetSelectedVariant(1).OriginalPrice > product.GetSelectedVariant(1).Price)
+            {
+                <h6 class="orginal-price">@product.GetSelectedVariant(1).OriginalPrice</h6>
+            }
+            <h4 class="price">@product.PriceText</h4>
+
         </div>
 
     </div>

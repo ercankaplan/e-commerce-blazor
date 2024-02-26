@@ -12,13 +12,15 @@ namespace EcommerceBlazorAPI.Model
         public int CategoryId { get; set; }
 
 
-        [Column(TypeName ="decimal(18,2)")]
-        public decimal Price { get; set; }
+        //[Column(TypeName ="decimal(18,2)")]
+        //public decimal Price { get; set; }
 
         public string ImageUrl { get; set; } = string.Empty;
 
         public string Author { get; set; } = string.Empty;
 
         public Category Category { get; set; }
+
+        public List<ProductVariant> Variants { get; set; }
     }
 }

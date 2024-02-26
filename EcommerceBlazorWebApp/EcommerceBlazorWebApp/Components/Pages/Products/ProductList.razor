@@ -31,7 +31,7 @@ else
                         <h4 class="mb-0">@item.Title</h4>
                     </a>
                     <p>@item.Description</p>
-                    <h5 class="price">$@item.Price</h5>
+                    <h5 class="price">@(item.PriceText)</h5>
                 </div>
 
             </li>
@@ -56,16 +56,15 @@ else
         // if (result.Success && result.Data is not null)
         //     Products = result.Data;
 
-
-
-
     }
 
     public void Dispose()
     {
-        
+
         _productService.ProductListChanged -= StateHasChanged;
     }
+
+    
 
 
 

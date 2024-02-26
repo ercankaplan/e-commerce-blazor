@@ -19,7 +19,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
-//app.UseStatusCodePagesWithRedirects("/error/{0}");
+app.UseStatusCodePagesWithRedirects("/error/{0}");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

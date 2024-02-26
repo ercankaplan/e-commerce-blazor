@@ -1,10 +1,11 @@
-﻿@page "/"
-@page "/{urlSlug}"
+﻿@page "/" 
+@page "/category/{urlSlug}"
 @inject IProductService _productService;
 
 @using EcommerceBlazorWebApp.Components.Pages.Products
 
 <PageTitle>Home</PageTitle>
+
 
 <ProductList></ProductList>
 
@@ -15,7 +16,7 @@ Welcome to your new app.
 <SurveyPrompt Subject="DevBlozer" ></SurveyPrompt>
  *@
 
-@code{
+@code {
 
     [Parameter]
     public string? urlSlug { get; set; }
@@ -26,5 +27,4 @@ Welcome to your new app.
         await _productService.GetProducts(urlSlug);
 
     }
-
- }
+}
